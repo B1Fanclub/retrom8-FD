@@ -157,7 +157,7 @@ end
 -- Const --
 local FEHAXXVERSION = "1.0.1"
 local plr = game:GetService("Players").LocalPlayer
-local baseUrl = "https://raw.githubusercontent.com/ayyyyyy-lmao/FEHaxx/refs/heads/main/"
+local baseUrl = "https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/"
 
 -- Fetched content
 local MOTD = stripString(fetch(baseUrl, "MOTD"))
@@ -235,16 +235,16 @@ setupButton(JumpAll, function()
 	end
 end)
 setupButton(Telekinesis, function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ayyyyyy-lmao/FEHaxx/refs/heads/main/CDN/Scripts/STK"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/STK"))()
 end)
 setupButton(Freecam, function()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ayyyyyy-lmao/FEHaxx/refs/heads/main/CDN/Scripts/FC"))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/FC"))()
 end)
 setupButton(BrickSpam, function()
 	-- bit of a hack, its like 4:00 am im too tired to come up with something better
 	if FEHAXX_BrickSpammingEnabled == nil then
 		getgenv().FEHAXX_BrickSpammingEnabled = true
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/ayyyyyy-lmao/FEHaxx/refs/heads/main/CDN/Scripts/BS"))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/BS"))()
 		BrickSpam.Text = "BrickSpam [ON]"
 	elseif FEHAXX_BrickSpammingEnabled == true then
 		getgenv().FEHAXX_BrickSpammingEnabled = false
