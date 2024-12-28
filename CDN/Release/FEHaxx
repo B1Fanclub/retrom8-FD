@@ -207,6 +207,8 @@ local pageTitle = clone(pageTitle, page4, {Text="Main"})
 local FEScripts = clone(SitAll, page4, {Name="FEScripts",Text="FE Scripts"})
 local ClientScripts = clone(JumpAll, page4, {Name="ClientScripts",Text="Client Scripts"})
 local Executor = clone(Telekinesis, page4, {Name="Executor",Text="Executor"})
+local MapsButton = clone(Freecam, page4, {Name="Maps",Text="Maps"})
+local GuisButton = clone(BrickSpam, page4, {Name="Executor",Text="GUIs"})
 
 -- Page 5: Maps
 local page5 = new("Frame", holder, {Name="Page5",BackgroundTransparency=1,Position=ezUD2({0, 0},{0, 25}),Size=ezUD2({1, 0},{1, -50}), BorderSizePixel=0,Visible = false})
@@ -236,8 +238,8 @@ activePage = page4
 setupPageButton(FEScripts, page1)
 setupPageButton(ClientScripts, page2)
 setupPageButton(Executor, page3)
-setupPageButton(Maps, page5)
-setupPageButton(GUIs, page6)
+setupPageButton(MapsButton, page5)
+setupPageButton(GuisButton, page6)
 
 -- Page 6 Buttons (GUIs)
 setupButton(TK4, function()
