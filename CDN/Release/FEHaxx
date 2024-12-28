@@ -53,7 +53,7 @@ local function roundify(uiElement, scale)
 	local border = new("ImageLabel", uiElement.Parent, {Name=uiElement.Name.."Corner",BackgroundColor3=uiElement.BackgroundColor3,Size=uiElement.Size+ud2(0,scale,0,scale),Position=uiElement.Position,ZIndex=uiElement.ZIndex-1,Image="rbxassetid://3570695787",ImageColor3=uiElement.BackgroundColor3,SliceCenter=Rect.new(100,100,100,100),ScaleType=1,SliceScale=0.12})
 end
 
-local hasHttpGet = pcall(function() return game:HttpGet("https://example.com") end)
+local hasHttpGet = pcall(function() return game:HttpGet("http://example.com") end)
 local function fetch(url, endpoint)
 	return hasHttpGet and game:HttpGet(url .. (endpoint or "")) or "Unable to fetch content"
 end
@@ -208,6 +208,26 @@ local FEScripts = clone(SitAll, page4, {Name="FEScripts",Text="FE Scripts"})
 local ClientScripts = clone(JumpAll, page4, {Name="ClientScripts",Text="Client Scripts"})
 local Executor = clone(Telekinesis, page4, {Name="Executor",Text="Executor"})
 
+-- Page 5: Maps
+local page5 = new("Frame", holder, {Name="Page5",BackgroundTransparency=1,Position=ezUD2({0, 0},{0, 25}),Size=ezUD2({1, 0},{1, -50}), BorderSizePixel=0,Visible = false})
+local div = new("Frame", page5, {Name="Divider",BackgroundColor3=rgb(238, 162, 56),Size=ezUD2({1, 0},{0, 5}),BorderSizePixel=0,Position=ezUD2({0, 0},{0, 39})})
+local pageTitle = new("TextLabel", page5, {Name="PageTitle",BackgroundTransparency=1,Size=ezUD2({1, 0},{0, 39}),Position=ezUD2({0, 0},{0, 0}),BorderSizePixel=0,Text="Maps",TextColor3=rgb(238, 162, 56),TextScaled=true})
+local WTC = new("TextButton", page5, {Name="WTC", TextColor3=c3(1,1,1),TextScaled=true,Text="World Trade Center",Position=ezUD2({0, 10},{0, 57}),Size=ezUD2({0, 88},{0, 30}),BackgroundColor3=rgb(238, 162, 56),BorderSizePixel=0})
+local ACS = clone(WTC, page5, {Name="Apples", Text="Apple Computer Store", Position=ezUD2({0, 105},{0, 57})})
+local CA = clone(WTC, page5, {Name="Clar", Text="Clockwork Arena", Position=ezUD2({0, 201},{0, 57})})
+local MacSucks = clone(WTC, page5, {Name="Mac",Text="Mac Store",Position=ezUD2({0, 10},{0, 95})})
+local Back = clone(WTC, page5, {Name="Back", Text="Back", Position=ezUD2({0, 105},{0, 213})})
+
+-- Page 6: GUIs
+local page6 = new("Frame", holder, {Name="Page6",BackgroundTransparency=1,Position=ezUD2({0, 0},{0, 25}),Size=ezUD2({1, 0},{1, -50}), BorderSizePixel=0,Visible = false})
+local div = new("Frame", page6, {Name="Divider",BackgroundColor3=rgb(238, 162, 56),Size=ezUD2({1, 0},{0, 5}),BorderSizePixel=0,Position=ezUD2({0, 0},{0, 39})})
+local pageTitle = new("TextLabel", page6, {Name="PageTitle",BackgroundTransparency=1,Size=ezUD2({1, 0},{0, 39}),Position=ezUD2({0, 0},{0, 0}),BorderSizePixel=0,Text="Maps",TextColor3=rgb(238, 162, 56),TextScaled=true})
+local TK4 = new("TextButton", page6, {Name="TK4.0", TextColor3=c3(1,1,1),TextScaled=true,Text="T0PK3K 4.0",Position=ezUD2({0, 10},{0, 57}),Size=ezUD2({0, 88},{0, 30}),BackgroundColor3=rgb(238, 162, 56),BorderSizePixel=0})
+local VAN = clone(TK4, page6, {Name="VanGui", Text="Van GUI", Position=ezUD2({0, 105},{0, 57})})
+local HD = clone(TK4, page6, {Name="Clar", Text="Hell's Door", Position=ezUD2({0, 201},{0, 57})})
+local BLANK = clone(TK4, page6, {Name="BLANKBUTTON",Text="[BLANK]",Position=ezUD2({0, 10},{0, 95})})
+local Back = clone(WTC, page6, {Name="Back", Text="Back", Position=ezUD2({0, 105},{0, 213})})
+
 -- Transition
 transitioner = new("Frame", nil, {Name = "Transition", BackgroundColor3=rgb(238, 162, 56),BorderSizePixel = 0, Size=ud2(1,0,0,0),ZIndex=10})
 activePage = page4
@@ -216,6 +236,33 @@ activePage = page4
 setupPageButton(FEScripts, page1)
 setupPageButton(ClientScripts, page2)
 setupPageButton(Executor, page3)
+setupPageButton(Maps, page5)
+setupPageButton(GUIs, page6)
+
+-- Page 6 Buttons (GUIs)
+setupButton(TK4, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/T0PK3K%204.0.txt"))()
+end)
+setupButton(VAN, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/UVG%20Fix.txt"))()
+end)
+setupButton(HD, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/Hells%20Door.txt"))()
+end)
+
+-- Page 5 Buttons (Maps)
+setupButton(WTC, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/world-trade-center.lua"))()
+end)
+setupButton(ACS, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/Apple%20Computer%20Store.txt"))()
+end)
+setupButton(CA, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/Clockwork%20Arena.txt"))()
+end)
+setupButton(MacSucks, function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/B1Fanclub/retrom8-FD/refs/heads/main/CDN/Scripts/Mac%20Store.txt"))()
+end)
 
 -- Page 1 Buttons (FE Scripts)
 setupButton(SitAll, function()
